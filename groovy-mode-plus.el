@@ -34,7 +34,7 @@
 
 ;;;###autoload
 (defun groovy-package ()
-  "Returns a guess of the package of the current Java source
+  "Returns a guess of the package of the current Groovy source
 file, based on the absolute filename. Package roots are matched
 against `java-root-convention'."
   (java-mode-plus-search-for-root-convention groovy-root-convention 
@@ -44,6 +44,11 @@ against `java-root-convention'."
 (defun groovy-class-name ()
   "Determine the class name from the filename."
   (file-name-sans-extension (file-name-nondirectory buffer-file-name)))
+
+;;;###autoload
+(defun groovy-spock-test-name()
+  "Determine the spock test name from the filename."
+  (concat groovy-class-name "Spec"))
 
 ;; Add the very handy binding from java-docs
 (define-key java-mode-plus-map (kbd "C-c C-g i") 'add-groovy-import)
