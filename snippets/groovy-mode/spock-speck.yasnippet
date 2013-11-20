@@ -1,0 +1,17 @@
+# -*- mode: snippet -*-
+# name: spockspec
+# key: spock
+# mode: groovy-mode
+# --
+package ${1:`(groovy-package))`}
+
+import spock.lang.Specification
+$2
+class ${3:`(groovy-class-name))`} extends Specification {
+    
+    def $4 = new $5()
+
+    def "$6" () {
+    	$0
+    }
+}
